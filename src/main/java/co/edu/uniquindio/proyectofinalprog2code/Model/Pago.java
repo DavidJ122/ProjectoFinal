@@ -1,4 +1,4 @@
-package co.edu.uniquindio.proyectofinalprog2code.model;
+package co.edu.uniquindio.proyectofinalprog2code.Model;
 
 import java.time.LocalDateTime;
 import java.io.Serializable;

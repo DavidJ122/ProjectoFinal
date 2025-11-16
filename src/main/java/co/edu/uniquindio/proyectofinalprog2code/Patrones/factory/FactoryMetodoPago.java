@@ -1,6 +1,6 @@
 package co.edu.uniquindio.proyectofinalprog2code.Patrones.factory;
 
-import co.edu.uniquindio.proyectofinalprog2code.model.*;
+import co.edu.uniquindio.proyectofinalprog2code.Model.*;
 
 public class FactoryMetodoPago {
     public static MetodoPago crearMetodoPago(String idMetodoPago, String numeroTarjeta,

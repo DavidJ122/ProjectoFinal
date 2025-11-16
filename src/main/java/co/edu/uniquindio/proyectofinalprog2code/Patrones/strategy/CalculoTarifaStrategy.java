@@ -1,6 +1,6 @@
 package co.edu.uniquindio.proyectofinalprog2code.Patrones.strategy;
 
-import co.edu.uniquindio.proyectofinalprog2code.model.Envio;
+import co.edu.uniquindio.proyectofinalprog2code.Model.Envio;
 
 public interface CalculoTarifaStrategy {
     double calcularTarifa(Envio envio);

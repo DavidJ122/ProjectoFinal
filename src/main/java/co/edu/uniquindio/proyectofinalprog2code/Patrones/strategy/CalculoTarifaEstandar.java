@@ -1,6 +1,6 @@
 package co.edu.uniquindio.proyectofinalprog2code.Patrones.strategy;
 
-import co.edu.uniquindio.proyectofinalprog2code.model.Envio;
+import co.edu.uniquindio.proyectofinalprog2code.Model.Envio;
 
 public class CalculoTarifaEstandar implements CalculoTarifaStrategy{
     private final double costoBasePorKm = 2000;

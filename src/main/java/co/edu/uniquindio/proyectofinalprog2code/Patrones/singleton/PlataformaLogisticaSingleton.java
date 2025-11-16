@@ -1,6 +1,6 @@
 package co.edu.uniquindio.proyectofinalprog2code.Patrones.singleton;
 
-import co.edu.uniquindio.proyectofinalprog2code.model.Empresa;
+import co.edu.uniquindio.proyectofinalprog2code.Model.Empresa;
 
 public class PlataformaLogisticaSingleton {
     private static PlataformaLogisticaSingleton instancia;

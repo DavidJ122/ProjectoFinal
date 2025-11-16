@@ -1,7 +1,7 @@
 package co.edu.uniquindio.proyectofinalprog2code.Patrones.strategy;
 
-import co.edu.uniquindio.proyectofinalprog2code.model.Envio;
-import co.edu.uniquindio.proyectofinalprog2code.model.ServicioAdicional;
+import co.edu.uniquindio.proyectofinalprog2code.Model.Envio;
+import co.edu.uniquindio.proyectofinalprog2code.Model.ServicioAdicional;
 
 public class CalculoTarifaPrioritaria implements CalculoTarifaStrategy{
 
