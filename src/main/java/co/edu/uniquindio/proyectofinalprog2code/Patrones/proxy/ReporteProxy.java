@@ -7,24 +7,23 @@ import co.edu.uniquindio.proyectofinalprog2code.Model.Usuario;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class ReporteProxy {
-    private ReporteReal reporteReal;
+public class ReporteProxy implements IReporteReal{
+    private IReporteReal reporteReal;
     private Usuario usuario;
 
     public ReporteProxy(Usuario usuario) {
         this.usuario = usuario;
     }
 
+    @Override
     public List<ReporteDTO> generarReporte(String tipoReporte, LocalDateTime fechaInicio,
                                            LocalDateTime fechaFin) throws Exception {
         // Verificar permisos
         if (!tienePermisos()) {
-            throw new SecurityException("Usuario no autorizado para generar reportes");
+            reporteReal = new ReporteRealUsuario();
         }
-
-        // Crear instancia del reporte real solo si es necesario
-        if (reporteReal == null) {
-            reporteReal = new ReporteReal();
+        else{
+            reporteReal = new ReporteRealAdmin();
         }
 
         // Delegar al reporte real

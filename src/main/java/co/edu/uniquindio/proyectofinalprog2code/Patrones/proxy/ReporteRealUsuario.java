@@ -1,25 +1,29 @@
 package co.edu.uniquindio.proyectofinalprog2code.Patrones.proxy;
 
+import co.edu.uniquindio.proyectofinalprog2code.Model.Empresa;
+import co.edu.uniquindio.proyectofinalprog2code.Model.Envio;
+import co.edu.uniquindio.proyectofinalprog2code.Model.EstadoEnvio;
+import co.edu.uniquindio.proyectofinalprog2code.Model.Usuario;
 import co.edu.uniquindio.proyectofinalprog2code.Patrones.singleton.PlataformaLogisticaSingleton;
 import co.edu.uniquindio.proyectofinalprog2code.dto.ReporteDTO;
-import co.edu.uniquindio.proyectofinalprog2code.Model.Empresa;
-import co.edu.uniquindio.proyectofinalprog2code.Model.*;
+import co.edu.uniquindio.proyectofinalprog2code.util.Sesion;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ReporteReal {
-    private final Empresa empresa;
+public class ReporteRealUsuario implements IReporteReal {
+    private final Usuario usuario;
 
-    public ReporteReal() {
-        this.empresa = PlataformaLogisticaSingleton.getInstancia().getEmpresa();
+    public ReporteRealUsuario() {
+        this.usuario = Sesion.getInstancia().getUsuarioActual();
     }
 
+    @Override
     public List<ReporteDTO> generarReporte(String tipoReporte, LocalDateTime fechaInicio,
                                            LocalDateTime fechaFin) {
-        List<Envio> envios = empresa.getEnvios().stream()
+        List<Envio> envios = usuario.getEnvios().stream()
                 .filter(e -> e.getFechaCreacion().isAfter(fechaInicio)
                         && e.getFechaCreacion().isBefore(fechaFin))
                 .collect(Collectors.toList());

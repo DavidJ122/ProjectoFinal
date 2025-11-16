@@ -21,7 +21,7 @@ import javafx.beans.property.SimpleStringProperty;
 import co.edu.uniquindio.proyectofinalprog2code.Model.Envio;
 
 public class UsuarioViewController implements Initializable {
-    
+
     @FXML
     private VBox contenidoPrincipal;
     
@@ -67,7 +67,18 @@ public class UsuarioViewController implements Initializable {
     
     @FXML
     private void mostrarHistorial() {
-        cargarTablaEnviosUsuario("Historial de Envíos");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/proyectofinalprog2code/AdminReportesView.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Generación de Reportes");
+            stage.setScene(new Scene(root, 800, 600));
+            stage.show();
+        } catch (IOException e) {
+            mostrarMensaje("Error", "Error al cargar la vista de reportes", Alert.AlertType.ERROR);
+            e.printStackTrace();
+        }
+
     }
     
     @FXML
