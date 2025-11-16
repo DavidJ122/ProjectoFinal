@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 public class InicializadorDatos {
 
     public static void inicializar() {
+        try {
             Empresa empresa = PlataformaLogisticaSingleton.getInstancia().getEmpresa();
 
             // Crear usuarios
@@ -150,6 +151,8 @@ public class InicializadorDatos {
             empresa.agregarEnvio(envio4);
 
             System.out.println("Datos inicializados correctamente");
-
+        } catch (PlataformaLogisticaException e) {
+            System.err.println("Error al inicializar datos: " + e.getMessage());
+        }
     }
 }

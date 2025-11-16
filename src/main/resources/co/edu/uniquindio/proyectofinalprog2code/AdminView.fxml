@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectofinalprog2code.ViewController.AdminViewController">
+    <children>
+        <MenuBar>
+            <menus>
+                <Menu text="Gestión">
+                    <items>
+                        <MenuItem text="Usuarios" onAction="#mostrarUsuarios" />
+                        <MenuItem text="Repartidores" onAction="#mostrarRepartidores" />
+                        <MenuItem text="Envíos" onAction="#mostrarEnvios" />
+                    </items>
+                </Menu>
+                <Menu text="Métricas">
+                    <items>
+                        <MenuItem text="Panel de Métricas" onAction="#mostrarMetricas" />
+                        <MenuItem text="Reportes" onAction="#mostrarReportes" />
+                    </items>
+                </Menu>
+                <Menu text="Configuración">
+                    <items>
+                        <MenuItem text="Cerrar Sesión" onAction="#cerrarSesion" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <VBox fx:id="contenidoPrincipal" prefHeight="650.0" prefWidth="1000.0" VBox.vgrow="ALWAYS">
+            <children>
+                <Label text="Panel de Administración" />
+            </children>
+        </VBox>
+    </children>
+</VBox>

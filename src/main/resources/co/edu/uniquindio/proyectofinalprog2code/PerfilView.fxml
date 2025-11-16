@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox spacing="15" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectofinalprog2code.ViewController.PerfilViewController">
+    <padding>
+        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+    </padding>
+    <children>
+        <Label text="Mi Perfil">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Separator />
+
+        <HBox spacing="10">
+            <children>
+                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                    <children>
+                        <Label text="Nombre Completo *" />
+                        <TextField fx:id="txtNombre" />
+                        <Label text="Correo Electrónico *" />
+                        <TextField fx:id="txtCorreo" />
+                        <Label text="Teléfono *" />
+                        <TextField fx:id="txtTelefono" />
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+
+        <Separator />
+
+        <Label text="Direcciones Frecuentes" />
+        <HBox spacing="10">
+            <children>
+                <TableView fx:id="tablaDirecciones" prefHeight="150.0" prefWidth="600.0" HBox.hgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colAlias" prefWidth="100.0" text="Alias" />
+                        <TableColumn fx:id="colCalle" prefWidth="200.0" text="Calle" />
+                        <TableColumn fx:id="colCiudad" prefWidth="150.0" text="Ciudad" />
+                    </columns>
+                </TableView>
+            </children>
+        </HBox>
+
+        <HBox spacing="10">
+            <children>
+                <Button text="Agregar Dirección" onAction="#agregarDireccion" />
+                <Button text="Eliminar Dirección" onAction="#eliminarDireccion" />
+            </children>
+        </HBox>
+
+        <Separator />
+
+        <Label text="Métodos de Pago" />
+        <HBox spacing="10">
+            <children>
+                <TableView fx:id="tablaMetodosPago" prefHeight="150.0" prefWidth="600.0" HBox.hgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colTipo" prefWidth="150.0" text="Tipo" />
+                        <TableColumn fx:id="colNumero" prefWidth="200.0" text="Número" />
+                        <TableColumn fx:id="colTitular" prefWidth="150.0" text="Titular" />
+                    </columns>
+                </TableView>
+            </children>
+        </HBox>
+
+        <HBox spacing="10">
+            <children>
+                <Button text="Agregar Método Pago" onAction="#agregarMetodoPago" />
+                <Button text="Eliminar Método Pago" onAction="#eliminarMetodoPago" />
+            </children>
+        </HBox>
+
+        <Separator />
+
+        <HBox spacing="10" alignment="CENTER">
+            <children>
+                <Button text="Guardar Cambios" onAction="#guardarCambios" />
+                <Button text="Cancelar" onAction="#cancelar" />
+            </children>
+        </HBox>
+    </children>
+</VBox>

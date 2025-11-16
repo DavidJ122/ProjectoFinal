@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox spacing="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectofinalprog2code.ViewController.CotizacionViewController">
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+    </padding>
+    <children>
+        <Label text="Cotizar Tarifa de Envío">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Separator />
+
+        <HBox spacing="10">
+            <children>
+                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                    <children>
+                        <Label text="Origen" />
+                        <ComboBox fx:id="comboOrigen" prefWidth="200.0" promptText="Seleccione origen" />
+                        <Label text="Destino" />
+                        <ComboBox fx:id="comboDestino" prefWidth="200.0" promptText="Seleccione destino" />
+                    </children>
+                </VBox>
+                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                    <children>
+                        <Label text="Peso (kg)" />
+                        <TextField fx:id="txtPeso" />
+                        <Label text="Volumen (m³)" />
+                        <TextField fx:id="txtVolumen" />
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+
+        <CheckBox fx:id="checkPrioritario" text="Entrega Prioritaria" />
+
+        <HBox spacing="10">
+            <children>
+                <Button fx:id="btnCalcular" text="Calcular Cotización" onAction="#calcularCotizacion" />
+                <Button text="Limpiar" onAction="#limpiar" />
+            </children>
+        </HBox>
+
+        <Separator />
+
+        <VBox fx:id="panelResultado" visible="false">
+            <children>
+                <Label text="Resultado de la Cotización">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <HBox spacing="20">
+                    <children>
+                        <VBox spacing="5">
+                            <children>
+                                <Label text="Distancia: " />
+                                <Label text="Costo Base: " />
+                                <Label text="Costo Peso: " />
+                                <Label text="Costo Volumen: " />
+                                <Label text="Costo Prioridad: " />
+                            </children>
+                        </VBox>
+                        <VBox spacing="5">
+                            <children>
+                                <Label fx:id="lblDistancia" />
+                                <Label fx:id="lblCostoBase" />
+                                <Label fx:id="lblCostoPeso" />
+                                <Label fx:id="lblCostoVolumen" />
+                                <Label fx:id="lblCostoPrioridad" />
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+                <Label text="COSTO TOTAL: " prefHeight="30.0" prefWidth="200.0">
+                    <font>
+                        <Font size="16.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="lblCostoTotal" prefHeight="30.0" prefWidth="200.0">
+                    <font>
+                        <Font size="16.0"/>
+                    </font>
+                </Label>
+            </children>
+        </VBox>
+    </children>
+</VBox>

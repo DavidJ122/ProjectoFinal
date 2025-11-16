@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox spacing="15" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectofinalprog2code.ViewController.AdminMetricasViewController">
+    <padding>
+        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+    </padding>
+    <children>
+        <Label text="Panel de Métricas">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Separator />
+
+        <HBox spacing="20">
+            <children>
+                <VBox fx:id="panelEstadisticas" spacing="10" HBox.hgrow="ALWAYS">
+                    <children>
+                        <Label text="Estadísticas Generales">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="lblTotalEnvios" text="Total Envíos: 0" />
+                        <Label fx:id="lblEnviosEntregados" text="Envíos Entregados: 0" />
+                        <Label fx:id="lblEnviosEnRuta" text="En Ruta: 0" />
+                        <Label fx:id="lblEnviosSolicitados" text="Solicitados: 0" />
+                        <Separator />
+                        <Label fx:id="lblIngresosTotales" text="Ingresos Totales: $0.00">
+                            <font>
+                                <Font/>
+                            </font>
+                        </Label>
+                        <Label fx:id="lblPromedioEnvio" text="Promedio por Envío: $0.00" />
+                    </children>
+                </VBox>
+                <VBox fx:id="panelRepartidores" spacing="10" HBox.hgrow="ALWAYS">
+                    <children>
+                        <Label text="Repartidores">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="lblTotalRepartidores" text="Total: 0" />
+                        <Label fx:id="lblActivos" text="Activos: 0" />
+                        <Label fx:id="lblInactivos" text="Inactivos: 0" />
+                        <Label fx:id="lblEnRuta" text="En Ruta: 0" />
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+
+        <Separator />
+
+        <Label text="Distribución por Estado" />
+        <VBox fx:id="panelDistribucion" spacing="5">
+            <children>
+                <Label fx:id="lblSolicitados" text="Solicitados: 0" />
+                <Label fx:id="lblAsignados" text="Asignados: 0" />
+                <Label fx:id="lblEnRutaE" text="En Ruta: 0" />
+                <Label fx:id="lblEntregados" text="Entregados: 0" />
+                <Label fx:id="lblIncidencias" text="Incidencias: 0" />
+            </children>
+        </VBox>
+
+        <HBox spacing="10">
+            <children>
+                <Button text="Actualizar Métricas" onAction="#actualizarMetricas" />
+            </children>
+        </HBox>
+    </children>
+</VBox>

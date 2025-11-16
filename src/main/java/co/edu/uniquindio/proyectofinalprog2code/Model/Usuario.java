@@ -126,6 +126,8 @@ public class Usuario implements Serializable {
         envios.add(envio);
     }
 
+    public void eliminarEnvio(Envio envio) { envios.remove(envio); }
+
     @Override
     public String toString() {
         return "Usuario{" +

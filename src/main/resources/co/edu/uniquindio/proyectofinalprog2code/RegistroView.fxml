@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" prefHeight="500.0" prefWidth="600.0" spacing="15.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectofinalprog2code.ViewController.RegistroViewController">
+    <children>
+        <Label text="Registro de Usuario" />
+        <VBox spacing="8.0">
+            <children>
+                <TextField fx:id="txtNombre" promptText="Nombre completo" prefWidth="300.0" />
+                <TextField fx:id="txtCorreo" promptText="Correo electrónico" prefWidth="300.0" />
+                <TextField fx:id="txtTelefono" promptText="Teléfono" prefWidth="300.0" />
+                <PasswordField fx:id="txtContrasena" promptText="Contraseña" prefWidth="300.0" />
+                <PasswordField fx:id="txtConfirmarContrasena" promptText="Confirmar contraseña" prefWidth="300.0" />
+            </children>
+        </VBox>
+        <HBox alignment="CENTER" spacing="10.0">
+            <children>
+                <Button fx:id="btnRegistrar" text="Registrarse" onAction="#registrar" />
+                <Button text="Volver" onAction="#volverAlLogin" />
+            </children>
+        </HBox>
+        <Label fx:id="lblMensaje" text="" />
+    </children>
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+</VBox>

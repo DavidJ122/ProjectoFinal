@@ -148,6 +148,16 @@ public class Empresa {
             envio.setFechaEntregaReal(java.time.LocalDateTime.now());
         }
     }
+    public void eliminarEnvio(Envio envio) throws PlataformaLogisticaException {
+        Usuario usuario = envio.getUsuario();
+        Repartidor repartidor = envio.getRepartidor();
+        if (repartidor == null) {
+            throw new PlataformaLogisticaException("Repartidor no encontrado");
+        }
+        repartidor.removerEnvio(envio);
+        usuario.eliminarEnvio(envio);
+        envios.remove(envio);
+    }
 
     // Métodos para tarifas
     public Tarifa getTarifa() {
