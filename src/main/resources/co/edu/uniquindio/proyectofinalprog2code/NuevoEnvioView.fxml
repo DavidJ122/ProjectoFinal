@@ -65,7 +65,7 @@
         <HBox spacing="20">
             <children>
                 <Label text="Costo Estimado:" />
-                <Label fx:id="lblCostoEstimado" text="$0.00" prefWidth="150.0">
+                <Label fx:id="lblCostoEstimado" text='0.00' prefWidth="150.0">
                     <font>
                         <Font/>
                     </font>

@@ -15,6 +15,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.beans.property.SimpleStringProperty;
+import co.edu.uniquindio.proyectofinalprog2code.Model.Envio;
 
 public class UsuarioViewController implements Initializable {
     
@@ -53,7 +57,7 @@ public class UsuarioViewController implements Initializable {
     
     @FXML
     private void mostrarMisEnvios() {
-        cargarVistaEnTabla("Mis Envíos");
+        cargarTablaEnviosUsuario("Mis Envíos");
     }
     
     @FXML
@@ -63,7 +67,7 @@ public class UsuarioViewController implements Initializable {
     
     @FXML
     private void mostrarHistorial() {
-        cargarVistaEnTabla("Historial de Envíos");
+        cargarTablaEnviosUsuario("Historial de Envíos");
     }
     
     @FXML
@@ -105,11 +109,30 @@ public class UsuarioViewController implements Initializable {
         }
     }
     
-    private void cargarVistaEnTabla(String titulo) {
-        // Implementación simplificada
+    private void cargarTablaEnviosUsuario(String titulo) {
+        TableView<Envio> tablaEnvios = new TableView<>();
+        TableColumn<Envio, String> colId = new TableColumn<>("ID");
+        TableColumn<Envio, String> colOrigen = new TableColumn<>("Origen");
+        TableColumn<Envio, String> colDestino = new TableColumn<>("Destino");
+        TableColumn<Envio, String> colEstado = new TableColumn<>("Estado");
+        TableColumn<Envio, String> colFecha = new TableColumn<>("Fecha");
+
+        colId.setCellValueFactory(data -> new SimpleStringProperty(String.valueOf(data.getValue().getIdEnvio())));
+        colOrigen.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getOrigen().getIdDireccion()));
+        colDestino.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getDestino().getIdDireccion()));
+        colEstado.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getEstado().toString()));
+        colFecha.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getFechaCreacion().toString()));
+
+        tablaEnvios.getColumns().addAll(colId, colOrigen, colDestino, colEstado, colFecha);
+
+        Usuario usuario = Sesion.getInstancia().getUsuarioActual();
+        ObservableList<Envio> envios = FXCollections.observableArrayList(servicioUsuarios.consultarEnvios(usuario));
+        tablaEnvios.setItems(envios);
+
         contenidoPrincipal.getChildren().clear();
         Label label = new Label(titulo);
-        contenidoPrincipal.getChildren().add(label);
+        VBox vbox = new VBox(10, label, tablaEnvios);
+        contenidoPrincipal.getChildren().add(vbox);
     }
     
     private void mostrarMensaje(String titulo, String mensaje, Alert.AlertType tipo) {

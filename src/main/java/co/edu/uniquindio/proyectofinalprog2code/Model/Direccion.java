@@ -87,13 +87,12 @@ public class Direccion implements Serializable {
 
     @Override
     public String toString() {
-        return "Direccion{" +
-                "idDireccion='" + idDireccion + '\'' +
-                ", alias='" + alias + '\'' +
-                ", calle='" + calle + '\'' +
-                ", ciudad='" + ciudad + '\'' +
-                ", coordenadas=(" + latitud + "," + longitud + ')' +
-                '}';
+        return "Direccion= " +
+                "idDireccion: " + idDireccion +
+                ", alias: " + alias +
+                ", calle: " + calle +
+                ", ciudad: " + ciudad +
+                ", coordenadas: " + latitud + "," + longitud  ;
     }
 }
 

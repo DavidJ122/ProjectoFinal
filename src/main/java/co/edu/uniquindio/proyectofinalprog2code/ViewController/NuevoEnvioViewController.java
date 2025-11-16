@@ -62,30 +62,19 @@ public class NuevoEnvioViewController implements Initializable {
         servicioCotizacion = new ServicioCotizacion();
 
         Usuario currentUser = Sesion.getInstancia().getUsuarioActual();
-        if (currentUser == null || currentUser.getDireccionesFrecuentes() == null || currentUser.getDireccionesFrecuentes().isEmpty()) {
-            lblMensaje.setVisible(true);
-            lblMensaje.setText("Debe registrar direcciones frecuentes antes de crear un envío.");
-            comboOrigen.setDisable(true);
-            comboDestino.setDisable(true);
-            txtPeso.setDisable(true);
-            txtVolumen.setDisable(true);
-            checkSeguro.setDisable(true);
-            checkPrioritario.setDisable(true);
-            checkFragil.setDisable(true);
-            checkFirma.setDisable(true);
-            btnCrearEnvio.setDisable(true);
-            return;
+        // Ahora SIEMPRE se habilita la vista; sólo muestra advertencia si están vacíos
+        if (currentUser != null && currentUser.getDireccionesFrecuentes() != null) {
+            comboOrigen.getItems().addAll(currentUser.getDireccionesFrecuentes());
+            comboDestino.getItems().addAll(currentUser.getDireccionesFrecuentes());
         }
 
-        comboOrigen.getItems().addAll(currentUser.getDireccionesFrecuentes());
-        comboDestino.getItems().addAll(currentUser.getDireccionesFrecuentes());
-
-        // Listener para calcular costo estimado
+        // Listener para costo estimado
         comboOrigen.setOnAction(e -> calcularCostoEstimado());
         comboDestino.setOnAction(e -> calcularCostoEstimado());
         txtPeso.textProperty().addListener((obs, oldVal, newVal) -> calcularCostoEstimado());
         txtVolumen.textProperty().addListener((obs, oldVal, newVal) -> calcularCostoEstimado());
         checkPrioritario.setOnAction(e -> calcularCostoEstimado());
+        lblMensaje.setVisible(false);
     }
     
     private void calcularCostoEstimado() {
@@ -126,29 +115,25 @@ public class NuevoEnvioViewController implements Initializable {
         try {
             Direccion origen = comboOrigen.getValue();
             Direccion destino = comboDestino.getValue();
-            double peso = Double.parseDouble(txtPeso.getText());
-            double volumen = Double.parseDouble(txtVolumen.getText());
             Usuario usuario = Sesion.getInstancia().getUsuarioActual();
-            
+
             if (origen == null || destino == null || usuario == null) {
-                mostrarMensaje("Error", "Complete todos los campos requeridos", Alert.AlertType.ERROR);
+                mostrarMensaje("Advertencia", "Debe seleccionar origen y destino válidos, y tener sesión iniciada.", Alert.AlertType.WARNING);
                 return;
             }
-            
+            double peso = Double.parseDouble(txtPeso.getText());
+            double volumen = Double.parseDouble(txtVolumen.getText());
+
             // Crear envío
             Envio envio = servicioEnvios.crearEnvio(origen, destino, peso, volumen, usuario);
-            
-            // Agregar servicios adicionales
+
             if (checkSeguro.isSelected()) envio.agregarServicioAdicional(ServicioAdicional.SEGURO);
             if (checkPrioritario.isSelected()) envio.agregarServicioAdicional(ServicioAdicional.ENTREGA_PRIORITARIA);
             if (checkFragil.isSelected()) envio.agregarServicioAdicional(ServicioAdicional.FRAGIL);
             if (checkFirma.isSelected()) envio.agregarServicioAdicional(ServicioAdicional.FIRMA_REQUERIDA);
-            
+
             mostrarMensaje("Éxito", "Envío creado correctamente. ID: " + envio.getIdEnvio(), Alert.AlertType.INFORMATION);
-            
-            // Cerrar ventana
             ((Stage) btnCrearEnvio.getScene().getWindow()).close();
-            
         } catch (NumberFormatException e) {
             mostrarMensaje("Error", "Por favor ingrese valores numéricos válidos", Alert.AlertType.ERROR);
         }
