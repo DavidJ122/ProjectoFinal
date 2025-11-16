@@ -1,6 +1,6 @@
 package co.edu.uniquindio.proyectofinalprog2code.Patrones.observer;
 
-import co.edu.uniquindio.proyectofinalprog2code.model.EstadoEnvio;
+import co.edu.uniquindio.proyectofinalprog2code.Model.EstadoEnvio;
 
 import java.util.ArrayList;
 import java.util.List;

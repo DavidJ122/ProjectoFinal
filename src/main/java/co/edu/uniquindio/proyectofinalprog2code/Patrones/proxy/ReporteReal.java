@@ -2,8 +2,8 @@ package co.edu.uniquindio.proyectofinalprog2code.Patrones.proxy;
 
 import co.edu.uniquindio.proyectofinalprog2code.Patrones.singleton.PlataformaLogisticaSingleton;
 import co.edu.uniquindio.proyectofinalprog2code.dto.ReporteDTO;
-import co.edu.uniquindio.proyectofinalprog2code.model.Empresa;
-import co.edu.uniquindio.proyectofinalprog2code.model.*;
+import co.edu.uniquindio.proyectofinalprog2code.Model.Empresa;
+import co.edu.uniquindio.proyectofinalprog2code.Model.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

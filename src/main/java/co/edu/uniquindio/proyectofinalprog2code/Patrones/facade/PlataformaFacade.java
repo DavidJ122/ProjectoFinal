@@ -1,7 +1,7 @@
 package co.edu.uniquindio.proyectofinalprog2code.Patrones.facade;
 
 import co.edu.uniquindio.proyectofinalprog2code.Patrones.singleton.PlataformaLogisticaSingleton;
-import co.edu.uniquindio.proyectofinalprog2code.model.*;
+import co.edu.uniquindio.proyectofinalprog2code.Model.*;
 
 public class PlataformaFacade {
     private final Empresa empresa;

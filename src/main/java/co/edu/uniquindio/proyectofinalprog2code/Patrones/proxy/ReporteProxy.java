@@ -1,8 +1,8 @@
 package co.edu.uniquindio.proyectofinalprog2code.Patrones.proxy;
 
 import co.edu.uniquindio.proyectofinalprog2code.dto.*;
-import co.edu.uniquindio.proyectofinalprog2code.model.TipoUsuario;
-import co.edu.uniquindio.proyectofinalprog2code.model.Usuario;
+import co.edu.uniquindio.proyectofinalprog2code.Model.TipoUsuario;
+import co.edu.uniquindio.proyectofinalprog2code.Model.Usuario;
 
 import java.time.LocalDateTime;
 import java.util.List;

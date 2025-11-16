@@ -2,10 +2,9 @@ package co.edu.uniquindio.proyectofinalprog2code.util;
 
 import co.edu.uniquindio.proyectofinalprog2code.Patrones.builder.EnvioBuilder;
 import co.edu.uniquindio.proyectofinalprog2code.Patrones.factory.FactoryMetodoPago;
-import co.edu.uniquindio.proyectofinalprog2code.model.*;
+import co.edu.uniquindio.proyectofinalprog2code.Model.*;
 import co.edu.uniquindio.proyectofinalprog2code.Patrones.strategy.*;
 import co.edu.uniquindio.proyectofinalprog2code.Patrones.singleton.*;
-
 import java.time.LocalDateTime;
 
 public class InicializadorDatos {
@@ -152,7 +151,6 @@ public class InicializadorDatos {
             empresa.agregarEnvio(envio4);
 
             System.out.println("Datos inicializados correctamente");
-
         } catch (PlataformaLogisticaException e) {
             System.err.println("Error al inicializar datos: " + e.getMessage());
         }

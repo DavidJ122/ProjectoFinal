@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectofinalprog2code.ViewController.UsuarioViewController">
+    <children>
+        <MenuBar>
+            <menus>
+                <Menu text="Envíos">
+                    <items>
+                        <MenuItem text="Nuevo Envío" onAction="#mostrarNuevoEnvio" />
+                        <MenuItem text="Mis Envíos" onAction="#mostrarMisEnvios" />
+                        <MenuItem text="Cotizar Tarifa" onAction="#mostrarCotizacion" />
+                    </items>
+                </Menu>
+                <Menu text="Reportes">
+                    <items>
+                        <MenuItem text="Historial" onAction="#mostrarHistorial" />
+                    </items>
+                </Menu>
+                <Menu text="Configuración">
+                    <items>
+                        <MenuItem text="Mi Perfil" onAction="#mostrarPerfil" />
+                        <SeparatorMenuItem />
+                        <MenuItem text="Cerrar Sesión" onAction="#cerrarSesion" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <VBox fx:id="contenidoPrincipal" prefHeight="600.0" prefWidth="900.0" VBox.vgrow="ALWAYS">
+            <children>
+                <Label fx:id="lblBienvenido" text="Bienvenido a Plataforma Logística" />
+            </children>
+        </VBox>
+    </children>
+</VBox>

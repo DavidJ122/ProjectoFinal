@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<VBox spacing="15" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectofinalprog2code.ViewController.AdminReportesViewController">
+    <padding>
+        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+    </padding>
+    <fx:define>
+        <ToggleGroup fx:id="grupoFormato" />
+    </fx:define>
+    <children>
+        <Label text="Generación de Reportes">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Separator />
+
+        <VBox spacing="10">
+            <children>
+                <Label text="Seleccione el tipo de reporte:" />
+                <ComboBox fx:id="comboTipoReporte" prefWidth="200.0">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Envíos" />
+                            <String fx:value="Ingresos" />
+                            <String fx:value="Estados" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+            </children>
+        </VBox>
+
+        <Separator />
+
+        <VBox spacing="10">
+            <children>
+                <Label text="Rango de fechas:" />
+                <HBox spacing="10">
+                    <children>
+                        <Label text="Desde:" />
+                        <DatePicker fx:id="dateDesde" />
+                        <Label text="Hasta:" />
+                        <DatePicker fx:id="dateHasta" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+
+        <Separator />
+
+        <VBox spacing="10">
+            <children>
+                <Label text="Formato de salida:" />
+                <HBox spacing="10">
+                    <children>
+                        <RadioButton fx:id="radioCSV" text="CSV" selected="true" toggleGroup="$grupoFormato" />
+                        <RadioButton fx:id="radioPDF" text="PDF" toggleGroup="$grupoFormato" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+
+        <HBox spacing="10" alignment="CENTER">
+            <children>
+                <Button text="Generar Reporte" onAction="#generarReporte" />
+                <Button text="Cancelar" onAction="#cancelar" />
+            </children>
+        </HBox>
+
+        <Label fx:id="lblMensaje" text="" visible="false" />
+    </children>
+</VBox>

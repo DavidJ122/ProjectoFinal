@@ -1,4 +1,4 @@
-package co.edu.uniquindio.proyectofinalprog2code.model;
+package co.edu.uniquindio.proyectofinalprog2code.Model;
 
 public class Tarifa {
     private static final long serialVersionUID = 1L;

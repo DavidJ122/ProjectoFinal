@@ -1,4 +1,4 @@
-package co.edu.uniquindio.proyectofinalprog2code.model;
+package co.edu.uniquindio.proyectofinalprog2code.Model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -125,6 +125,8 @@ public class Usuario implements Serializable {
     public void agregarEnvio(Envio envio) {
         envios.add(envio);
     }
+
+    public void eliminarEnvio(Envio envio) { envios.remove(envio); }
 
     @Override
     public String toString() {

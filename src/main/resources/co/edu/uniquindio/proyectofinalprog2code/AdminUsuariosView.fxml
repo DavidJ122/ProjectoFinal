@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox spacing="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectofinalprog2code.ViewController.AdminUsuariosViewController">
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+    </padding>
+    <children>
+        <Label text="Gestión de Usuarios">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Separator />
+
+        <HBox spacing="10">
+            <children>
+                <TableView fx:id="tablaUsuarios" prefHeight="400.0" prefWidth="850.0" HBox.hgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colId" prefWidth="100.0" text="ID" />
+                        <TableColumn fx:id="colNombre" prefWidth="200.0" text="Nombre" />
+                        <TableColumn fx:id="colCorreo" prefWidth="200.0" text="Correo" />
+                        <TableColumn fx:id="colTelefono" prefWidth="150.0" text="Teléfono" />
+                        <TableColumn fx:id="colTipo" prefWidth="100.0" text="Tipo" />
+                    </columns>
+                </TableView>
+            </children>
+        </HBox>
+
+        <HBox spacing="10">
+            <children>
+                <Button text="Agregar Usuario" onAction="#agregarUsuario" />
+                <Button text="Editar Usuario" onAction="#editarUsuario" />
+                <Button text="Eliminar Usuario" onAction="#eliminarUsuario" />
+            </children>
+        </HBox>
+    </children>
+</VBox>

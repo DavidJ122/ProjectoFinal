@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectofinalprog2code.ViewController.LoginViewController">
+    <children>
+        <Label text="Plataforma Logística" styleClass="title" />
+        <Label fx:id="lblMensaje" text="Ingrese sus credenciales" />
+        <VBox spacing="10.0">
+            <children>
+                <TextField fx:id="txtCorreo" promptText="Correo electrónico" prefWidth="300.0" />
+                <PasswordField fx:id="txtContrasena" promptText="Contraseña" prefWidth="300.0" />
+            </children>
+        </VBox>
+        <HBox alignment="CENTER" spacing="10.0">
+            <children>
+                <Button fx:id="btnLogin" text="Iniciar Sesión" onAction="#iniciarSesion" />
+                <Button text="Registrarse" onAction="#irARegistro" />
+            </children>
+        </HBox>
+        <Hyperlink fx:id="linkRegistro" text="¿No tiene cuenta? Regístrese aquí" onAction="#irARegistro" />
+    </children>
+    <padding>
+        <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+    </padding>
+</VBox>

@@ -1,4 +1,4 @@
-package co.edu.uniquindio.proyectofinalprog2code.model;
+package co.edu.uniquindio.proyectofinalprog2code.Model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -147,6 +147,16 @@ public class Empresa {
         if (nuevoEstado == EstadoEnvio.ENTREGADO) {
             envio.setFechaEntregaReal(java.time.LocalDateTime.now());
         }
+    }
+    public void eliminarEnvio(Envio envio) throws PlataformaLogisticaException {
+        Usuario usuario = envio.getUsuario();
+        Repartidor repartidor = envio.getRepartidor();
+        if (repartidor == null) {
+            throw new PlataformaLogisticaException("Repartidor no encontrado");
+        }
+        repartidor.removerEnvio(envio);
+        usuario.eliminarEnvio(envio);
+        envios.remove(envio);
     }
 
     // Métodos para tarifas
