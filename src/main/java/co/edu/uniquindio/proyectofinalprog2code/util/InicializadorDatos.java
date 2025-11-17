@@ -150,6 +150,22 @@ public class InicializadorDatos {
 
             empresa.agregarEnvio(envio4);
 
+            Incidencia incidencia1 = new Incidencia(
+                    "Retraso en la entrega debido a tráfico pesado en la zona",
+                    LocalDateTime.now().minusDays(2).toString(),
+                    "RETRASO",
+                    envio2
+            );
+            envio2.addIncidencia(incidencia1);
+
+            Incidencia incidencia2 = new Incidencia(
+                    "Cliente ausente en el momento de la entrega, se dejó notificación",
+                    LocalDateTime.now().minusDays(4).toString(),
+                    "CLIENTE_AUSENTE",
+                    envio1
+            );
+            envio1.addIncidencia(incidencia2);
+
             System.out.println("Datos inicializados correctamente");
         } catch (PlataformaLogisticaException e) {
             System.err.println("Error al inicializar datos: " + e.getMessage());

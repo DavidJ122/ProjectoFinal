@@ -23,6 +23,7 @@ public class Envio implements Serializable {
     private List<ServicioAdicional> serviciosAdicionales;
     private Pago pago;
     private List<String> historialEstados;
+    private List<Incidencia> incidencias;
 
     public Envio() {
         this.serviciosAdicionales = new ArrayList<>();
@@ -156,6 +157,19 @@ public class Envio implements Serializable {
 
     public void agregarServicioAdicional(ServicioAdicional servicio) {
         serviciosAdicionales.add(servicio);
+    }
+
+    public List<Incidencia> getIncidencias() {
+        return incidencias;
+    }
+    public void addIncidencia(Incidencia incidencia) {
+        incidencias.add(incidencia);
+    }
+    public void setIncidencias(List<Incidencia> incidencias) {
+        this.incidencias = incidencias;
+    }
+    public void eliminarIncidencia(Incidencia incidencia) {
+        incidencias.remove(incidencia);
     }
 
     public double calcularDistancia() {
