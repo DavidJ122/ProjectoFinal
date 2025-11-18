@@ -28,6 +28,7 @@ public class Envio implements Serializable {
     public Envio() {
         this.serviciosAdicionales = new ArrayList<>();
         this.historialEstados = new ArrayList<>();
+        this.incidencias = new ArrayList<>();
         this.fechaCreacion = LocalDateTime.now();
         this.estado = EstadoEnvio.SOLICITADO;
         this.historialEstados.add("SOLICITADO: " + fechaCreacion.toString());

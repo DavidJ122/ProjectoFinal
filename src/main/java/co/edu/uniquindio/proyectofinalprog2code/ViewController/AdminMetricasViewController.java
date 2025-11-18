@@ -74,17 +74,17 @@ public class AdminMetricasViewController implements Initializable {
         long enviosEnRuta = empresa.filtrarEnviosPorEstado(EstadoEnvio.EN_RUTA).size();
         long enviosSolicitados = empresa.filtrarEnviosPorEstado(EstadoEnvio.SOLICITADO).size();
         long enviosAsignados = empresa.filtrarEnviosPorEstado(EstadoEnvio.ASIGNADO).size();
-        long enviosIncidencias = empresa.filtrarEnviosPorEstado(EstadoEnvio.INCIDENCIA).size();
+        long enviosIncidencias = empresa.getTotalIncidencias();
         
         lblTotalEnvios.setText("Total Envíos: " + totalEnvios);
         lblEnviosEntregados.setText("Envíos Entregados: " + enviosEntregados);
         lblEnviosEnRuta.setText("En Ruta: " + enviosEnRuta);
         lblEnviosSolicitados.setText("Solicitados: " + enviosSolicitados);
-        lblSolicitados.setText("Solicitados: " + enviosSolicitados);
-        lblAsignados.setText("Asignados: " + enviosAsignados);
-        lblEnRutaE.setText("En Ruta: " + enviosEnRuta);
-        lblEntregados.setText("Entregados: " + enviosEntregados);
-        lblIncidencias.setText("Incidencias: " + enviosIncidencias);
+        lblSolicitados.setText(String.valueOf(enviosSolicitados));
+        lblAsignados.setText(String.valueOf(enviosAsignados));
+        lblEnRutaE.setText(String.valueOf(enviosEnRuta));
+        lblEntregados.setText(String.valueOf(enviosEntregados));
+        lblIncidencias.setText(String.valueOf(enviosIncidencias));
         
         // Ingresos
         double ingresosTotales = empresa.getEnvios().stream()

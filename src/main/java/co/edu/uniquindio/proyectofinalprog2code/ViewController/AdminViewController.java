@@ -82,6 +82,7 @@ public class AdminViewController implements Initializable {
             stage.show();
         } catch (IOException e) {
             mostrarMensaje("Error", "Error al cargar la vista de métricas", Alert.AlertType.ERROR);
+            e.printStackTrace();
         }
     }
     

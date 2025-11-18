@@ -174,4 +174,12 @@ public class Empresa {
                 .filter(e -> e.getEstado() == estado)
                 .toList();
     }
+
+    public byte getTotalIncidencias(){
+        byte total = 0;
+        for (Envio envio : envios) {
+            total += envio.getIncidencias().size();
+        }
+        return total;
+    }
 }
